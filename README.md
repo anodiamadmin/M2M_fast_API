@@ -1,5 +1,5 @@
 # M2M_fast_API
-Fast APIs built for microservices for Micro2Move MVP
+Fast APIs built for microservices for micro2move iOS app.
 
 # Developers' Guide
 Install Python 3.11.9 (or the most stable predecessor).
