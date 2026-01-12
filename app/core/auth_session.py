@@ -8,7 +8,7 @@ from app.core.security import decode_jwt
 
 security = HTTPBearer()
 
-def auth_guard(
+def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(security),
     db: Session = Depends(lambda: SessionLocal())
 ) -> User:
