@@ -1,8 +1,8 @@
 # M2M_fast_API
-Fast APIs built for microservices for micro2move iOS app.
+Authentication APIs built for microservices for micro2move iOS app.
 
 # Developers' Guide
-Install Python 3.11.9 (or the most stable predecessor).
+Install Python 3.11.9
 
 Run:
 ```bash
@@ -12,7 +12,7 @@ to create a virtual environment with python 3.11.9
 
 Run:
 ```bash
-source .venv/bin/activate
+.venv\Scripts\Activate.ps1
 ```
 to activate the .venv (if it's not active already)
 
