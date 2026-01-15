@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from app.db.base import Base
 
 class Token(Base):
@@ -6,4 +6,5 @@ class Token(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, nullable=False)
-    token = Column(String, unique=True, nullable=False)
+    # FIXED: Added (255) so unique=True works in MySQL
+    token = Column(String(512), unique=True, nullable=False)

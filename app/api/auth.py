@@ -46,6 +46,11 @@ def signin(user: SignInSchema, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Incorrect password")
 
     token = create_jwt(db_user.id)
+
+    # --- FIX: Delete old tokens for this user before adding a new one ---
+    # This prevents the "Duplicate entry" error and ensures a clean session.
+    db.query(Token).filter(Token.user_id == db_user.id).delete()
+
     token_entry = Token(user_id=db_user.id, token=token)
     db.add(token_entry)
     db.commit()
@@ -55,10 +60,9 @@ def signin(user: SignInSchema, db: Session = Depends(get_db)):
 
 @router.post("/logout")
 def logout(
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db),
+        current_user: User = Depends(get_current_user),
+        db: Session = Depends(get_db),
 ):
-
     db.query(Token).filter(Token.user_id == current_user.id).delete()
     db.commit()
 
