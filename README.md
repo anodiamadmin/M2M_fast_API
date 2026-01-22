@@ -23,3 +23,9 @@ pip install -r  requirements.txt
 to install all the project requirements
 
 # You are ready to code!
+
+Run:
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+to start micro2move backend
