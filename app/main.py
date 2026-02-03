@@ -1,3 +1,8 @@
+# Need to migrate to Alembic later for database scaling in production
+# CORS security to be enhanced in production
+# Need to switch to Async SQLAlchemy (AsyncSession) using aiosqlite or asyncpg instead of synchronous Session with psycopg2 for database calls as userbase grows
+# Python's logging module to be implemented fo better error logs
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.base import Base, engine
